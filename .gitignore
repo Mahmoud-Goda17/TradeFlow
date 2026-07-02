@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# Visual Studio Code
+.vscode/
+
+# User files
+*.user
+*.suo
+
+# Test
+TestResults/
+s
