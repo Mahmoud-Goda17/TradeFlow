@@ -17,7 +17,7 @@ namespace UserService.Application.Featuers.Users.Command.UpdateUser
                 .EmailAddress().WithMessage("Invalid email format.");
             RuleFor(x => x.phone)
                 .NotEmpty().WithMessage("Phone number is required.")
-                .Matches(@"^\+?\d{7,15}$").WithMessage("Phone number must be 7–15 digits and may start with '+'.");
+                .Matches(@"^01[0125][0-9]{8}$").WithMessage("Phone number must be 7–15 digits and may start with '+'.");
             RuleFor(x => x.userType)
                 .IsInEnum().WithMessage("Invalid user type.");
         }
