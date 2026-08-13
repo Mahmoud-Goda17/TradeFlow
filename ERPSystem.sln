@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService", "UserService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductSercice", "ProductSercice\ProductSercice.csproj", "{6D3FA801-6471-45BB-B07B-662B037B7D14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService", "InventoryService\InventoryService.csproj", "{0F177A36-0C54-4CA5-9B44-293A41690CF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6D3FA801-6471-45BB-B07B-662B037B7D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D3FA801-6471-45BB-B07B-662B037B7D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D3FA801-6471-45BB-B07B-662B037B7D14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F177A36-0C54-4CA5-9B44-293A41690CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F177A36-0C54-4CA5-9B44-293A41690CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F177A36-0C54-4CA5-9B44-293A41690CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F177A36-0C54-4CA5-9B44-293A41690CF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

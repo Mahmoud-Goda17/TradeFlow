@@ -1,6 +1,6 @@
 @ProductSercice_HostAddress = http://localhost:5245
 
-GET {{ProductSercice_HostAddress}}/weatherforecast/
+GET {{ProductSercice_HostAddress}}/api/Product/internal/11jhgfdfhj
 Accept: application/json
 
 ###

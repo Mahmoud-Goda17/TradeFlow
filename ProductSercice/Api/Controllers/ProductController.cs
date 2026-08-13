@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProductSercice.Application.Featuers.Products.Command.ActiveProduct;
 using ProductSercice.Application.Featuers.Products.Command.CreateProduct;
 using ProductSercice.Application.Featuers.Products.Command.DeActiveProduct;
@@ -12,11 +13,12 @@ using ProductSercice.Application.Featuers.Products.Queries.GetProductById;
 using ProductSercice.Application.Featuers.Products.Queries.GetProducts;
 using ProductSercice.Application.Featuers.Products.Queries.SearchByName;
 using ProductSercice.Application.Featuers.Products.Queries.SearchBySKU;
+using ProductSercice.Application.Interfaces;
 
 namespace ProductSercice.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ProductController(ISender sender) : ApiController
+    public class ProductController(ISender sender,IAppDbContext context) : ApiController
     {
         [HttpGet]
         public async Task<IActionResult> Get(CancellationToken ct)
@@ -116,6 +118,20 @@ namespace ProductSercice.Api.Controllers
             if (result.IsSuccess)
                 return NoContent();
             return Problem(result.Errors);
+        }
+        [HttpGet("internal/{id:guid}")]
+        public async Task<IActionResult> GetProductByIdInternal(Guid id, CancellationToken ct)
+        {
+            var product=await context.Products
+                .Where(p => p.Id == id)
+                .Select(p => new
+                {
+                    p.Id,
+                    p.Status
+                }).FirstOrDefaultAsync(ct);
+            if (product == null)
+                return NotFound();
+            return Ok(product);
         }
     }
 }
