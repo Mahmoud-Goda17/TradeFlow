@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using UserService.Application.Featuers.Users.Command.CreateCustomer;
 using UserService.Application.Featuers.Users.Command.RemoveCustomer;
 using UserService.Application.Featuers.Users.Command.UpdateCustomer;
@@ -7,11 +8,12 @@ using UserService.Application.Featuers.Users.Queries.GetCustomerBuUserId;
 using UserService.Application.Featuers.Users.Queries.GetCustomerByCompanyName;
 using UserService.Application.Featuers.Users.Queries.GetCustomerById;
 using UserService.Application.Featuers.Users.Queries.GetCustomers;
+using UserService.Application.Interfaces;
 
 namespace UserService.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class CustomerController(ISender sender) : ApiController
+    public class CustomerController(ISender sender,IAppDbContext context) : ApiController
     {
         [HttpGet]
         public async Task<IActionResult> Get(CancellationToken ct)
@@ -71,5 +73,19 @@ namespace UserService.Api.Controllers
                 return NoContent();
             return Problem(result.Errors);
         }
+        [HttpGet("internal/{id:guid}")]
+        public async Task<IActionResult> GetProductByIdInternal(Guid id, CancellationToken ct)
+        {
+            var customer = await context.Customers
+                .Where(p => p.Id == id)
+                .Select(p => new
+                {
+                    p.Id,
+                }).FirstOrDefaultAsync(ct);
+            if (customer == null)
+                return NotFound();
+            return Ok(customer);
+        }
+
     }
 }

@@ -54,7 +54,7 @@ namespace ProductSercice.InfraStrucure.Data.MigrationFile
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("brands");
+                    b.ToTable("brands", (string)null);
                 });
 
             modelBuilder.Entity("ProductSercice.Domain.Category.Category", b =>
@@ -84,7 +84,7 @@ namespace ProductSercice.InfraStrucure.Data.MigrationFile
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("ProductSercice.Domain.Product.Product", b =>
@@ -148,7 +148,7 @@ namespace ProductSercice.InfraStrucure.Data.MigrationFile
 
                     b.HasIndex("Name", "BrandId", "CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("ProductSercice.Domain.Product.Product", b =>
