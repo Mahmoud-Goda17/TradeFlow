@@ -2,12 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using ProductSercice.Application.Interfaces;
+using ProductSercice.Domain.Event;
 using Shared.Results;
 
 namespace ProductSercice.Application.Featuers.Products.Command.UpdateProduct
 {
     public class UpdateProductCommandHandler(IAppDbContext context,
-        ILogger<UpdateProductCommandHandler> logger, IMemoryCache cache) : IRequestHandler<UpdateProductCommand, Result<Updated>>
+        ILogger<UpdateProductCommandHandler> logger, IMemoryCache cache, IMediator mediator) : IRequestHandler<UpdateProductCommand, Result<Updated>>
     {
         public async Task<Result<Updated>> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
@@ -37,6 +38,12 @@ namespace ProductSercice.Application.Featuers.Products.Command.UpdateProduct
             }
             await context.SaveChangesAsync(cancellationToken);
             cache.Remove("products");
+            var productEvent = new ProductEvent(
+                eventId: Guid.NewGuid(),
+                productId: existingProduct.Id,
+                productName: existingProduct.Name);
+
+            await mediator.Publish(productEvent,cancellationToken);
             return updateresult;
         }
     }

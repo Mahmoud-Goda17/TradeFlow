@@ -6,7 +6,7 @@ using Shared.Results;
 namespace SalesService.Application.Featuers.SalesOrdes.Commands.RemoveSalesOrderItem
 {
     public class RemoveSalesOrderItemCommandHandler(IAppDbContext context,
-        ILogger<RemoveSalesOrderItemCommandHandler> logger) : IRequestHandler<RemoveSalesOrderItemCommand, Result<Updated>>
+        ILogger<RemoveSalesOrderItemCommandHandler> logger, IMediator mediator) : IRequestHandler<RemoveSalesOrderItemCommand, Result<Updated>>
     {
         public async Task<Result<Updated>> Handle(RemoveSalesOrderItemCommand request, CancellationToken cancellationToken)
         {
@@ -24,7 +24,7 @@ namespace SalesService.Application.Featuers.SalesOrdes.Commands.RemoveSalesOrder
                 return result.Errors;
             }
            await context.SaveChangesAsync(cancellationToken);
-           return result ;
+            return result ;
         }
     }
 }

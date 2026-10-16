@@ -8,6 +8,8 @@ using SalesService.Application.Featuers.SalesOrdes.Interfaces;
 using SalesService.Application.Featuers.SalesOrdes.services;
 using SalesService.Application;
 using SalesService.Api;
+using Shared.Commen;
+using SalesService.InfraStrucure.Services;
 
 
 namespace SalesService
@@ -49,8 +51,8 @@ namespace SalesService
             {
                 client.BaseAddress = new Uri(builder.Configuration["UserUrl"]!);
             });
-
-
+            builder.Services.Configure<RappitMqConfiguration>(builder.Configuration.GetSection("RappitMqConfiguration"));
+            builder.Services.AddScoped<IRabbitmqservice, Rabbitmqservice>();
 
             var app = builder.Build();
 

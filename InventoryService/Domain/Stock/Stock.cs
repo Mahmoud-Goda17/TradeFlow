@@ -5,7 +5,7 @@ namespace InventoryService.Domain.Stock
 {
     public sealed class Stock : AuditableEntity
     {
-        public Guid ProductId { get; private set; }
+        public  Guid ProductId { get; private set; }
 
         public Guid WarehouseId { get; private set; }
 

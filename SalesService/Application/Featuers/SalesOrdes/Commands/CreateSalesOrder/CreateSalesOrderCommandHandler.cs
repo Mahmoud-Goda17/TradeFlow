@@ -1,13 +1,15 @@
 ﻿using MediatR;
 using SalesService.Application.Featuers.SalesOrdes.Interfaces;
 using SalesService.Application.Interfaces;
+using SalesService.Domain.Event;
 using SalesService.Domain.SalesOrders;
 using Shared.Results;
 
 namespace SalesService.Application.Featuers.SalesOrdes.Commands.CreateSalesOrder 
 {
     public class CreateSalesOrderCommandHandler(IAppDbContext context,
-        ILogger<CreateSalesOrderCommandHandler> logger, IProductServiceClient product, ICustomerServiceClient customer) : IRequestHandler<CreateSalesOrderCommand, Result<Guid>>
+        ILogger<CreateSalesOrderCommandHandler> logger,
+        IProductServiceClient product, ICustomerServiceClient customer, IMediator mediator) : IRequestHandler<CreateSalesOrderCommand, Result<Guid>>
     {
         public async Task<Result<Guid>> Handle(CreateSalesOrderCommand request, CancellationToken cancellationToken)
         {
@@ -45,6 +47,23 @@ namespace SalesService.Application.Featuers.SalesOrdes.Commands.CreateSalesOrder
 
             context.Sales.Add(order);
             await context.SaveChangesAsync(cancellationToken);
+            foreach (var item in order.Items)
+            {
+                var salesEvent = new SalesEvent(
+                    eventId: Guid.NewGuid(),
+                    salesOrderId: order.Id,
+                    orderNumber: order.OrderNumber,
+                    productId: item.ProductId,
+                    quantity: item.Quantity,
+                    unitPrice: item.UnitPrice,
+                    discount: item.Discount,
+                    tax: item.Tax,
+                    total: item.Total);
+
+                await mediator.Publish(
+                    salesEvent,
+                    cancellationToken);
+            }
             return order.Id;
         }
     }

@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using ProductSercice.Application.Interfaces;
@@ -8,7 +7,7 @@ using Shared.Results;
 namespace ProductSercice.Application.Featuers.Products.Command.RemoveProduct
 {
     public class RemoveProductCommandHandler(IAppDbContext context,
-        ILogger<RemoveProductCommandHandler> logger, IMemoryCache cache) : IRequestHandler<RemoveProductCommand, Result<Deleted>>
+        ILogger<RemoveProductCommandHandler> logger, IMemoryCache cache, IMediator mediator) : IRequestHandler<RemoveProductCommand, Result<Deleted>>
     {
         public async Task<Result<Deleted>> Handle(RemoveProductCommand request, CancellationToken cancellationToken)
         {

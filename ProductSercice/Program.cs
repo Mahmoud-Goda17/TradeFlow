@@ -6,6 +6,8 @@ using ProductSercice.InfraStrucure.Data.Interceptor;
 using Microsoft.EntityFrameworkCore;
 using ProductSercice.Application;
 using ProductSercice.Api;
+using Shared.Commen;
+using ProductSercice.InfraStrucure.Services;
 
 namespace ProductSercice
 {
@@ -38,6 +40,9 @@ namespace ProductSercice
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.Configure<RappitMqConfiguration>(builder.Configuration.GetSection("RappitMqConfiguration"));
+            builder.Services.AddScoped<IRabbitmqservice, Rabbitmqservice>();
+
 
             var app = builder.Build();
 
