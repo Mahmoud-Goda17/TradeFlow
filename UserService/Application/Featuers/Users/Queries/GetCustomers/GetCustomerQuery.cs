@@ -4,7 +4,7 @@ using UserService.Application.Featuers.Users.Dtos;
 
 namespace UserService.Application.Featuers.Users.Queries.GetCustomers
 {
-    public sealed record class GetCustomerQuery: IRequest<Result<List<CustomerDto>>>
+    public sealed record  GetCustomerQuery: IRequest<Result<List<CustomerDto>>>
     {
     }
 }

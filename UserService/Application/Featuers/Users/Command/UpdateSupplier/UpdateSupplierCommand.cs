@@ -3,7 +3,7 @@ using Shared.Results;
 
 namespace UserService.Application.Featuers.Users.Command.UpdateSupplier
 {
-    public sealed record class UpdateSupplierCommand(Guid userid,
+    public sealed record UpdateSupplierCommand(Guid userid,
         string companyName,
         string taxNumber,
         string bankAccount) : IRequest<Result<Updated>>

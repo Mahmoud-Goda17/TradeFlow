@@ -3,7 +3,7 @@ using Shared.Results;
 
 namespace SalesService.Application.Featuers.SalesOrdes.Commands.RemoveSalesOrderItem
 {
-    public sealed record class RemoveSalesOrderItemCommand(Guid salesorderid, Guid productId): IRequest<Result<Updated>>
+    public sealed record RemoveSalesOrderItemCommand(Guid salesorderid, Guid productId): IRequest<Result<Updated>>
     {
     }
 }

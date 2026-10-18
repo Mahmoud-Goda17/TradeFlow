@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace ProductSercice.Application.Featuers.Brands.Queries.GetBrandById
 {
-    public sealed record class GetBrandByIdQuery(Guid id) : IRequest<Result<BrandDto>>
+    public sealed record  GetBrandByIdQuery(Guid id) : IRequest<Result<BrandDto>>
     {
     }
 }

@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace ProductSercice.Application.Featuers.Products.Queries.GetByBarCode
 {
-    public sealed record class GetByBarCodeQuery(string barcode) : IRequest<Result<ProductDto>>
+    public sealed record GetByBarCodeQuery(string barcode) : IRequest<Result<ProductDto>>
     {
     }
 }

@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace ProductSercice.Application.Featuers.Brands.Commands.CreateBrand
 {
-    public sealed record class CreateBrandCommand(string name, string description, string country) : IRequest<Result<BrandDto>>
+    public sealed record CreateBrandCommand(string name, string description, string country) : IRequest<Result<BrandDto>>
     {
     }
 }

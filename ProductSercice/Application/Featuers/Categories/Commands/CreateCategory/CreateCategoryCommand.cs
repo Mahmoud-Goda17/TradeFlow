@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace ProductSercice.Application.Featuers.Categories.Commands.CreateCategory
 {
-    public sealed record class CreateCategoryCommand(string name, string description) : IRequest<Result<CategoryDto>>
+    public sealed record CreateCategoryCommand(string name, string description) : IRequest<Result<CategoryDto>>
     {
     }
 }

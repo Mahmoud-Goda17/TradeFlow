@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace InventoryService.Application.Featuers.stock.Queries.GetStocksByWhereHouseId
 {
-    public sealed record class GetStocksByWhereHouseIdQuery(Guid wherhouseid): IRequest<Result<List<StockDto>>>
+    public sealed record GetStocksByWhereHouseIdQuery(Guid wherhouseid): IRequest<Result<List<StockDto>>>
     {
     }
 }

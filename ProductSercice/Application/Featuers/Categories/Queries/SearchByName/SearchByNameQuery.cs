@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace ProductSercice.Application.Featuers.Categories.Queries.SearchByName
 {
-    public sealed record class SearchByNameQuery(string name) : IRequest<Result<List<CategoryDto>>>
+    public sealed record SearchByNameQuery(string name) : IRequest<Result<List<CategoryDto>>>
     {
     }
 }

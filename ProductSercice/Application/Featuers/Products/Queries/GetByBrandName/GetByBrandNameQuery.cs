@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace ProductSercice.Application.Featuers.Products.Queries.GetByBrandName
 {
-    public sealed record class GetByBrandNameQuery(string brandname) : IRequest<Result<List<ProductDto>>>
+    public sealed record  GetByBrandNameQuery(string brandname) : IRequest<Result<List<ProductDto>>>
     {
     }
 }

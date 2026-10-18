@@ -3,9 +3,7 @@ using Shared.Results;
 
 namespace SalesService.Application.Featuers.SalesOrdes.Commands.AddItemToSalesOrder
 {
-    public sealed record class AddItemToSalesOrderCommand(Guid salesorderid,
-        Guid productId,
-        int quantity,
+    public sealed record AddItemToSalesOrderCommand(Guid salesorderid,Guid productId,int quantity,
         decimal unitPrice, decimal discount, decimal tax) : IRequest<Result<Updated>>
     {
     }

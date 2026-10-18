@@ -4,7 +4,7 @@ using UserService.Domain.Users;
 
 namespace UserService.Application.Featuers.Users.Command.UpdateUser
 {
-    public sealed record class UpdateUserCommand(Guid id,
+    public sealed record  UpdateUserCommand(Guid id,
         string fullName,
         string email,
         string phone,

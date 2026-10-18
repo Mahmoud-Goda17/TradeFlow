@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace ProductSercice.Application.Featuers.Brands.Queries.GetBrands
 {
-    public sealed record class GetBrandsQuery : IRequest<Result<List<BrandDto>>>
+    public sealed record GetBrandsQuery : IRequest<Result<List<BrandDto>>>
     {
     }
 }

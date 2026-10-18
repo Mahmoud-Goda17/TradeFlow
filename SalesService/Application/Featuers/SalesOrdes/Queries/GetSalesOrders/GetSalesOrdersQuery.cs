@@ -5,9 +5,7 @@ using Shared.Results;
 
 namespace SalesService.Application.Featuers.SalesOrdes.Queries.GetSalesOrders
 {
-    public sealed record class GetSalesOrdersQuery(Guid? CustomerId,
-    OrderStatus? Status,
-    string? OrderNumber) : IRequest<Result<List<SalesOrderDto>>>
+    public sealed record GetSalesOrdersQuery(Guid? CustomerId,OrderStatus? Status,string? OrderNumber) : IRequest<Result<List<SalesOrderDto>>>
     {
     }
 }

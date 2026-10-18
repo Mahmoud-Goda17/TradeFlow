@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace ProductSercice.Application.Featuers.Products.Queries.SearchBySKU
 {
-    public sealed record class SearchBySKUQuery(string SKU) : IRequest<Result<ProductDto>>    
+    public sealed record  SearchBySKUQuery(string SKU) : IRequest<Result<ProductDto>>    
     {
     }
 }

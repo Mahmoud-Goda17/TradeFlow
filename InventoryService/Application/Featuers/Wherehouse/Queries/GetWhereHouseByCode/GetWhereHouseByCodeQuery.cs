@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace InventoryService.Application.Featuers.Wherehouse.Queries.GetWhereHouseByCode
 {
-    public sealed record class GetWhereHouseByCodeQuery(string code): IRequest<Result<List<WherehouseDto>>>
+    public sealed record GetWhereHouseByCodeQuery(string code): IRequest<Result<List<WherehouseDto>>>
     {
     }
 }

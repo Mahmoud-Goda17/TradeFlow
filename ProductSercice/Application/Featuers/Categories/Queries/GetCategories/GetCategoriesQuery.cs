@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace ProductSercice.Application.Featuers.Categories.Queries.GetCategories
 {
-    public sealed record class GetCategoriesQuery:IRequest<Result<List<CategoryDto>>>
+    public sealed record  GetCategoriesQuery:IRequest<Result<List<CategoryDto>>>
     {
     }
 }

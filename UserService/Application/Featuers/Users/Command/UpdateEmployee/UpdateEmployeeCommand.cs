@@ -3,7 +3,7 @@ using Shared.Results;
 
 namespace UserService.Application.Featuers.Users.Command.UpdateEmployee
 {
-    public sealed record class UpdateEmployeeCommand(Guid userid,
+    public sealed record UpdateEmployeeCommand(Guid userid,
         string department,
         string jobTitle,
         decimal salary,

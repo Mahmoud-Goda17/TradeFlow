@@ -4,7 +4,7 @@ using Shared.Results;
 
 namespace SalesService.Application.Featuers.SalesOrdes.Queries.GetSalesOrderById
 {
-    public sealed record class GetSalesOrderByIdQuery(Guid id): IRequest<Result<SalesOrderDto>>
+    public sealed record GetSalesOrderByIdQuery(Guid id): IRequest<Result<SalesOrderDto>>
     {
     }
 }

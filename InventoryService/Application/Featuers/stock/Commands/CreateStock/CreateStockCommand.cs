@@ -4,8 +4,7 @@ using Shared.Results;
 
 namespace InventoryService.Application.Featuers.stock.Commands.CreateStock
 {
-    public sealed record class CreateStockCommand(Guid productId,
-        Guid warehouseId, int quantity) : IRequest<Result<StockDto>>
+    public sealed record CreateStockCommand(Guid productId,Guid warehouseId, int quantity) : IRequest<Result<StockDto>>
     {
     }
 }
